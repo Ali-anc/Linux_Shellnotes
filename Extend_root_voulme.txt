@@ -1,0 +1,28 @@
+Once the new disk is avail
+Create partition
+create pv
+Extend Vg from the pv created
+Extend LV woith the free space we have from VG
+
+1) fdisk /dev/sdb
+2) pvcreate /dev/sdb1
+3) pvs
+4) vgextend cl /dev/sdb1
+5) vgs
+6) vgdisplay to see whats free/avaialble ( Free  PE / Size)
+7) lvextend -l +51200 /dev/cl/root  1 = --extents, L = --size 
+8) xfs_growfs /dev/cl/root
+9) lvdisplay
+
+How to extend AWS EBS volumes.
+
+0) Click on “Volumes” under ELASTIC BLOCK STORE menu (on the left)
+1) locate the voulme ID.
+2) Select the Volume ID and click "Modify Volume", hit yes.
+3) log in to server
+4) df -TH ( to see current size)
+5) lsblk ( list block devices and you'll see partition reflecting the size you input) 
+5) sudo growpart /dev/xvda # ( # = to what you see when you to lsblk ) 
+6) lsblk ( we the size now)
+7) sudo resize2fs /dev/xvda1 = ext2, ext3, or ext4, type: or sudo xfs_growfs /dev/xvda1 = XFS (Extend File System)
+8) df -h ( check the exteneded File System)
