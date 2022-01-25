@@ -26,3 +26,12 @@ How to extend AWS EBS volumes.
 6) lsblk ( we the size now)
 7) sudo resize2fs /dev/xvda1 = ext2, ext3, or ext4, type: or sudo xfs_growfs /dev/xvda1 = XFS (Extend File System)
 8) df -h ( check the exteneded File System)
+
+0) Once modified the volume, complete the following below
+1) df -TH     (/dev/nvme0n1p2 xfs)
+2) lsblk
+3) nvme0n1     259:0    0  30G  0 disk
+   ├─nvme0n1p1 259:1    0   1M  0 part
+   └─nvme0n1p2 259:2    0  30G  0 part /
+4) sudo growpart /dev/nvme0n1 2
+5) sudo xfs_growfs /dev/nvme0n1p2
