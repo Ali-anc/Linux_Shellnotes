@@ -13,7 +13,7 @@ Extend LV with the free space we have in VG
 7) lvdisplay ( view the lv, which you will extend)
 8) lvextend -l +51200 /dev/cl/root  1 = --extents, L = --size  -r, --resizefs (no need for another grow command if your run with -r)
 9) xfs_growfs /dev/cl/root
-10) DF -Th ( See the results)
+10) df -Th ( See the results)
 
 How to extend AWS EBS volumes.
 
