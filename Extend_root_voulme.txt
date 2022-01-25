@@ -1,8 +1,8 @@
 Once the new disk is avail
 Create partition
-create pv
-Extend Vg from the pv created
-Extend LV woith the free space we have from VG
+create PV
+Extend VG from the pv created
+Extend LV with the free space we have in VG
 
 1) fdisk /dev/sdb
 2) pvcreate /dev/sdb1 ( n, p, 1, enter, enter, , 83(linux), w) 
