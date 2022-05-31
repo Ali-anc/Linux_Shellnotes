@@ -3,7 +3,7 @@
 In this page you will see brief findings related to SAR cmd.
 Useful Linux CLI tool for monitoring Linux resources, and very useful for providing information without having to monitor it live. Please read sar man to get more info. 
 
->The following below are some Flags or options used with sar command.
+> ### The following below are some Flags or options used with sar command.
 
 `-q = Report queue length and load averages`
 
@@ -29,7 +29,7 @@ sar -q -f /var/log/sa/sa#dateofmonth |egrep "12:30:29 PM|ldavg|Average"
 ```
 
 
-> The following below is useful cmd/flag to find the following
+> ### The following below is useful cmd/flag to find the following
 ```
 sar -S 
 ```
@@ -38,7 +38,7 @@ _kbswpfree and kbswpused._
 
 _Checks for Swap mem used and free_
 
-> The following below isuseful cmd/flag to find the following
+> ### The following below isuseful cmd/flag to find the following
 
 sar -r 
 
@@ -49,3 +49,15 @@ _The kbbuffers and kbcached columns correspond to the buffers and cache columns 
 _kbmemfree is the same as the free column in the output of free._
 
 _kbmemused is the sum of the used and buff/cache columns in free_
+
+
+
+> ###  How to find out over CPU %
+
+_Issue the following cmd below to find out %idle time._
+
+```
+sar -u -f sa04  |egrep "12:30:03 PM | %idle"
+```
+
+`idel - 100 = CPU %`
